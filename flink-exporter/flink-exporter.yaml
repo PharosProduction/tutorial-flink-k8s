@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flink-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: flink-exporter
+  template:
+    metadata:
+      labels:
+        component: flink-exporter
+    spec:
+      containers:
+      - name: flink-exporter
+        image: pharosproduction/flink-exporter:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+          - containerPort: 9160
+        
+        tty: true
+        command: ["flink_exporter", "--flink-job-manager-url", "flink-jobmanager:8081"]
+        # command: ["/bin/sh"]
+      imagePullSecrets:
+        - name: regcred
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: flink-exporter
+spec:
+  ports:
+  - name: flink-exporter
+    port: 9160

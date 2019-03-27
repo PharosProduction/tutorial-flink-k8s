@@ -11,7 +11,9 @@ Also you're warmely welcome to say hello to us
 A basic Flink session cluster deployment in Kubernetes has three components:
 
 a Deployment/Job which runs the JobManager
+
 a Deployment for a pool of TaskManagers
+
 a Service exposing the JobManager’s REST and UI ports
 
 ## If using MiniKube please make sure to execute:

@@ -1,4 +1,4 @@
-# Tutorial on 
+# Tutorial on How to Deploy Flink Cluster & Flink-exporter in Kubernetes Cluster
 
 ## You can find it in our Medium publication
 [Pharos Production Medium Article](https://medium.com/pharos-production/how-to-deploy-flink-flink-exporter-in-kubernetes-cluster-48e24b440446).
@@ -14,7 +14,7 @@ a Deployment/Job which runs the JobManager
 a Deployment for a pool of TaskManagers
 a Service exposing the JobManager’s REST and UI ports
 
-##If using MiniKube please make sure to execute:
+## If using MiniKube please make sure to execute:
 
 minikube ssh 'sudo ip link set docker0 promisc on'
 
